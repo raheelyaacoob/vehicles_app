@@ -1,0 +1,63 @@
+{% extends 'index.html' %}
+{% block pageHeader %}{% endblock %}
+{% block pageContent %}
+    <h2>Add New Vehicle</h2>
+    <form action="{% url 'submit_vehicle_form' %}" method="POST">
+        {% csrf_token %}
+        <div class="row mb-4">
+            <div class="col">
+                <div class="form-outline">
+                    <label class="form-label" for="make">Make</label>
+                    <input type="text" id="make" name="make" class="form-control" value="{{ vehicle_obj.make }}"/>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-outline">
+
+                    <label class="form-label" for="model">Model</label>
+                    <input type="text" id="model" name="model" class="form-control" value="{{ vehicle_obj.model }}"/>
+                </div>
+            </div>
+        </div>
+        <div class="row mb-4">
+            <div class="col">
+                <div class="form-outline mb-4">
+
+                    <label class="form-label" for="speed">Speed</label>
+                    <input type="text" id="speed" name="speed" class="form-control" value="{{ vehicle_obj.speed }}"/>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-outline mb-2">
+
+                    <label class="form-label" for="average_speed">Average Speed</label>
+                    <input type="text" id="average_speed" name="average_speed" class="form-control" value="{{ vehicle_obj.average_speed }}"/>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-outline mb-4">
+
+                    <label class="form-label" for="temperature">Temperature</label>
+                    <input type="text" id="temperature" name="temperature" class="form-control" value="{{ vehicle_obj.temperature }}"/>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-outline mb-4">
+
+                    <label class="form-label" for="fuel_level">Fuel Level</label>
+                    <input type="text" id="fuel_level" name="fuel_level" class="form-control" value="{{ vehicle_obj.fuel_level }}"/>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-outline mb-4">
+
+                    <label class="form-label" for="engine_status">Engine Status</label>
+                    <input type="text" id="engine_status" name="engine_status" class="form-control" value="{{ vehicle_obj.engine_status }}"/>
+                </div>
+            </div>
+        </div>
+        <input type="hidden" name="vehicle_id" value="{{ vehicle_obj.id }}"/>
+        <!-- Submit button -->
+        <button type="submit" class="btn btn-primary btn-block mb-4">Save</button>
+    </form>
+{% endblock %}
